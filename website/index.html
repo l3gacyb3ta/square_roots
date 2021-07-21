@@ -5,7 +5,7 @@
 <main>
 <h1>An investigation into different initial guess for square root computations</h1>
 <h2>Why?</h2>
-<p>I was walking through the go tour, and came across an exercise that was to write a square root function. It then gave me a formula for refining an inital guess to a better one, using Newton's Method. That formula is <code>z -= (z*z - x) / (2*z)</code> where z in an initial guess, and x is the number we want the square root of. The z² − x above is how far away z² is from where it needs to be (x), and the division by 2z is the derivative of z², to scale how much we adjust z by how quickly z² is changing.<br>
+<p>I was walking through the go tour, and came across an exercise that was to write a square root function. It then gave me a formula for refining an inital guess to a better one, using Newton's Method. That formula is <code>z -= (z*z - x) / (2*z)</code> where z in an initial guess, and x is the number we want the square root of. The z^2 - x above is how far away z^2 is from where it needs to be (x), and the division by 2z is the derivative of z^2, to scale how much we adjust z by how quickly z^2 is changing.<br>
 My code for the square root function, given a number x and an inital guess z is as follows (written in go):</p>
 <pre><code>// Standard Square root using an intial guess z
 func Sqrt(x float64, z float64) (float64, int) {
