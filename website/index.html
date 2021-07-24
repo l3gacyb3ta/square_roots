@@ -3,11 +3,15 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <main>
-<h1>An investigation into different initial guess for square root computations</h1>
-<h2>Why?</h2>
-<p>I was walking through the go tour, and came across an exercise that was to write a square root function. It then gave me a formula for refining an inital guess to a better one, using Newton's Method. That formula is <code>z -= (z*z - x) / (2*z)</code> where z in an initial guess, and x is the number we want the square root of. The z^2 - x above is how far away z^2 is from where it needs to be (x), and the division by 2z is the derivative of z^2, to scale how much we adjust z by how quickly z^2 is changing.<br>
-My code for the square root function, given a number x and an inital guess z is as follows (written in go):</p>
-<pre><code>// Standard Square root using an intial guess z
+    <h1>An investigation into different initial guess for square root computations</h1>
+    <h2>Why?</h2>
+    <p>I was walking through the go tour, and came across an exercise that was to write a square root function. It then
+        gave me a formula for refining an inital guess to a better one, using Newton's Method. That formula is
+        <code>z -= (z*z - x) / (2*z)</code> where z in an initial guess, and x is the number we want the square root of.
+        The z^2 - x above is how far away z^2 is from where it needs to be (x), and the division by 2z is the derivative
+        of z^2, to scale how much we adjust z by how quickly z^2 is changing.<br>
+        My code for the square root function, given a number x and an inital guess z is as follows (written in go):</p>
+    <pre><code>// Standard Square root using an intial guess z
 func Sqrt(x float64, z float64) (float64, int) {
     counter := 0
 
@@ -30,18 +34,19 @@ func Sqrt(x float64, z float64) (float64, int) {
     return z, counter
 }
 </code></pre>
-<h2>Method:</h2>
-<p>I wrote a bunch of different initial guessing methods and tried them on two different numbers. The initial guess algorithm methods I have are as follows:</p>
-<ul>
-<li>2/3rds. This guesses <code>x * (2 / 3)</code></li>
-<li>Full. This guesses <code>x</code> itself</li>
-<li>Half. This guesses <code>x / 2</code></li>
-<li>0.1. This guesses <code>0.1</code></li>
-<li>999... This guesses <code>99999999</code></li>
-</ul>
-<h2>Results:</h2>
-<p>The output of my code, which is avalible <a href="sqrt.go">here</a>, is as follows:</p>
-<pre><code>8721.86 is supposed to be 8721.86 and was completed in 18 iterations using the 2/3rds guess method
+    <h2>Method:</h2>
+    <p>I wrote a bunch of different initial guessing methods and tried them on two different numbers. The initial guess
+        algorithm methods I have are as follows:</p>
+    <ul>
+        <li>2/3rds. This guesses <code>x * (2 / 3)</code></li>
+        <li>Full. This guesses <code>x</code> itself</li>
+        <li>Half. This guesses <code>x / 2</code></li>
+        <li>0.1. This guesses <code>0.1</code></li>
+        <li>999... This guesses <code>99999999</code></li>
+    </ul>
+    <h2>Results:</h2>
+    <p>The output of my code, which is avalible <a href="sqrt.go">here</a>, is as follows:</p>
+    <pre><code>8721.86 is supposed to be 8721.86 and was completed in 18 iterations using the 2/3rds guess method
 8721.86 is supposed to be 8721.86 and was completed in 19 iterations using the full number guess method
 8721.86 is supposed to be 8721.86 and was completed in 18 iterations using the half guess method
 8721.86 is supposed to be 8721.86 and was completed in 18 iterations using the 999... guess method
@@ -53,11 +58,12 @@ func Sqrt(x float64, z float64) (float64, int) {
 924.0002341 is supposed to be 924.0002341 and was completed in 19 iterations using the 0.1 guess method
 924.0002341 is supposed to be 924.0002341 and was completed in 22 iterations using the 999... guess method
 </code></pre>
-<h3>What does this mean?</h3>
-<p>The iterations is how long it took the function to evaluate to a change in guess of less than 2e-15.<br>
-The <code>is supposed to be</code> is so that I can debug float errors.</p>
-<p>Given these results, we can determine that 2/3rds and 1/2 methods are the most efficient, followed by full. 999... and 0.1 do not turn out to be very efficient.</p>
-<hr>
-<p>Written by Arcade Wise, on the Hacker Zephyr.<br>
-Generated using <a href="https://raleighwi.se/monis">monis</a></p>
+    <h3>What does this mean?</h3>
+    <p>The iterations is how long it took the function to evaluate to a change in guess of less than 2e-15.<br>
+        The <code>is supposed to be</code> is so that I can debug float errors.</p>
+    <p>Given these results, we can determine that 2/3rds and 1/2 methods are the most efficient, followed by full.
+        999... and 0.1 do not turn out to be very efficient.</p>
+    <hr>
+    <p>Written by Arcade Wise, on the Hacker Zephyr.<br>
+        Generated using <a href="https://raleighwi.se/monis">monis</a></p>
 </main>
